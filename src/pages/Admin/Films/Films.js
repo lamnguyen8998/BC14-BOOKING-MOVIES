@@ -10,7 +10,10 @@ import {
   CalendarOutlined,
 } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { layDanhSachPhimAction } from "../../../redux/actions/QuanLyPhimAction";
+import {
+  layDanhSachPhimAction,
+  xoaPhimAction,
+} from "../../../redux/actions/QuanLyPhimAction";
 import { NavLink } from "react-router-dom";
 
 const { Search } = Input;
@@ -35,6 +38,102 @@ export default function Films() {
   useEffect(() => {
     dispatch(layDanhSachPhimAction());
   }, []);
+  const columns = [
+    {
+      title: "Mã phim",
+      dataIndex: "maPhim",
+      sorter: (a, b) => a.maPhim - b.maPhim,
+      sortDirections: ["descend", "ascend"],
+      width: "5%",
+    },
+    {
+      title: "Hình ảnh",
+      dataIndex: "hinhAnh",
+      render: (text, film, index) => {
+        return (
+          <Fragment>
+            <img
+              src={film.hinhAnh}
+              alt={film.tenPhim}
+              width={50}
+              height={50}
+              onError={(e) => {
+                e.target.onError = null;
+                e.target.src = `https://picsum.photos/id/${index}/50/50`;
+              }}
+            />
+          </Fragment>
+        );
+      },
+      width: "10%",
+    },
+    {
+      title: "Tên phim",
+      dataIndex: "tenPhim",
+      sorter: (a, b) => {
+        let tenPhimA = a.tenPhim.toLowerCase().trim();
+        let tenPhimB = b.tenPhim.toLowerCase().trim();
+        if (tenPhimA > tenPhimB) {
+          return 1;
+        }
+        return -1;
+      },
+      sortDirections: ["descend", "ascend"],
+      width: "10%",
+    },
+    {
+      title: "Mô tả",
+      dataIndex: "moTa",
+
+      render: (text, film) => {
+        return (
+          <Fragment>
+            {film.moTa.length > 50
+              ? film.moTa.substr(0, 50) + " ..."
+              : film.moTa}
+          </Fragment>
+        );
+      },
+      sortDirections: ["descend", "ascend"],
+      width: "15%",
+    },
+    {
+      title: "Hành động",
+      dataIndex: "maPhim",
+      render: (text, film) => {
+        return (
+          <Fragment>
+            <NavLink
+              key={1}
+              className=" text-green-200 mr-2 text-2xl"
+              style={{ color: "blue" }}
+              to={`/admin/films/edit/${film.maPhim}`}
+            >
+              <EditOutlined />
+            </NavLink>
+            <span
+              style={{ cursor: "pointer" }}
+              key={2}
+              className="text-2xl"
+              onClick={() => {
+                //Gọi action xoá
+                if (
+                  window.confirm("Bạn có chắc muốn xoá phim " + film.tenPhim)
+                ) {
+                  //Gọi action
+                  dispatch(xoaPhimAction(film.maPhim));
+                }
+              }}
+            >
+              <DeleteOutlined style={{ color: "red" }} />{" "}
+            </span>
+          </Fragment>
+        );
+      },
+      sortDirections: ["descend", "ascend"],
+      width: "10%",
+    },
+  ];
 
   return (
     <div>
@@ -55,97 +154,15 @@ export default function Films() {
         suffix={suffix}
         onSearch={onSearch}
       />
-      <Table columns={columns} dataSource={data} onChange={onChange} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        onChange={onChange}
+        rowKey={"maPhim"}
+      />
     </div>
   );
 }
-
-const columns = [
-  {
-    title: "Mã phim",
-    dataIndex: "maPhim",
-    sorter: (a, b) => a.maPhim - b.maPhim,
-    sortDirections: ["descend", "ascend"],
-    width: "5%",
-  },
-  {
-    title: "Hình ảnh",
-    dataIndex: "hinhAnh",
-    render: (text, film, index) => {
-      return (
-        <Fragment>
-          <img
-            src={film.hinhAnh}
-            alt={film.tenPhim}
-            width={50}
-            height={50}
-            onError={(e) => {
-              e.target.onError = null;
-              e.target.src = `https://picsum.photos/id/${index}/50/50`;
-            }}
-          />
-        </Fragment>
-      );
-    },
-    width: "10%",
-  },
-  {
-    title: "Tên phim",
-    dataIndex: "tenPhim",
-    sorter: (a, b) => {
-      let tenPhimA = a.tenPhim.toLowerCase().trim();
-      let tenPhimB = b.tenPhim.toLowerCase().trim();
-      if (tenPhimA > tenPhimB) {
-        return 1;
-      }
-      return -1;
-    },
-    sortDirections: ["descend", "ascend"],
-    width: "10%",
-  },
-  {
-    title: "Mô tả",
-    dataIndex: "moTa",
-
-    render: (text, film) => {
-      return (
-        <Fragment>
-          {film.moTa.length > 50 ? film.moTa.substr(0, 50) + " ..." : film.moTa}
-        </Fragment>
-      );
-    },
-    sortDirections: ["descend", "ascend"],
-    width: "15%",
-  },
-  {
-    title: "Hành động",
-    dataIndex: "maPhim",
-    render: (text, film) => {
-      return (
-        <Fragment>
-          <NavLink
-            key={1}
-            className=" text-green-200 mr-2 text-2xl"
-            style={{ color: "blue" }}
-            to={`/admin/films/edit/${film.maPhim}`}
-          >
-            <EditOutlined />
-          </NavLink>
-          <NavLink
-            key={2}
-            className=" text-green-200 text-2xl "
-            style={{ color: "red" }}
-            to="/"
-          >
-            <DeleteOutlined />
-          </NavLink>
-        </Fragment>
-      );
-    },
-    sortDirections: ["descend", "ascend"],
-    width: "10%",
-  },
-];
 
 function onChange(pagination, filters, sorter, extra) {
   console.log("params", pagination, filters, sorter, extra);

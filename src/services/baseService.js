@@ -54,7 +54,7 @@ export class baseService {
       url: `${DOMAIN}/${url}`,
       method: "DELETE",
       headers: {
-        Authorization: `Bearer${TOKEN}`,
+        Authorization: `Bearer ${TOKEN}`,
         TokenCybersoft: TOKEN_CYBERSOFT + localStorage.getItem(TOKEN),
       },
     });
