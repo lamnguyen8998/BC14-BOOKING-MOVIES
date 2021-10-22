@@ -56,7 +56,7 @@ export default function Detail(props) {
             <TabPane tab="Lịch Chiếu" key="1">
               <div>
                 <Tabs tabPosition={"left"}>
-                  {filmDetail?.heThongRapChieu.map((htr, index) => {
+                  {filmDetail?.heThongRapChieu?.map((htr, index) => {
                     return (
                       <TabPane
                         tab={

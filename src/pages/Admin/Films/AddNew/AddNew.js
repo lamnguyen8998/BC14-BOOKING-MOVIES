@@ -157,7 +157,10 @@ const AddNew = () => {
           <img style={{ width: 150, height: 150 }} src={imgSrc} alt="..." />
         </Form.Item>
         <Form.Item label="Tác vụ">
-          <button type="submit" className="bg-blue-300 text-white p-2">
+          <button
+            type="submit"
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          >
             Thêm phim
           </button>
         </Form.Item>

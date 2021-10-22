@@ -124,13 +124,15 @@ const columns = [
       return (
         <Fragment>
           <NavLink
+            key={1}
             className=" text-green-200 mr-2 text-2xl"
             style={{ color: "blue" }}
-            to="/"
+            to={`/admin/films/edit/${film.maPhim}`}
           >
             <EditOutlined />
           </NavLink>
           <NavLink
+            key={2}
             className=" text-green-200 text-2xl "
             style={{ color: "red" }}
             to="/"
