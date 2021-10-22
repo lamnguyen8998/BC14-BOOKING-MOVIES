@@ -2,34 +2,10 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import Film_Flip from "../Phim/Film_Flip";
 import { useDispatch, useSelector } from "react-redux";
-import styleSlick from "./MultipleRowSlick.module.css";
 import {
   SET_FILM_DANG_CHIEU,
   SET_FILM_SAP_CHIEU,
 } from "../../redux/types/QuanLyPhimType";
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "gray" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "gray" }}
-      onClick={onClick}
-    />
-  );
-}
 
 const MultipleRowSlick = (props) => {
   const dispatch = useDispatch();
@@ -50,17 +26,20 @@ const MultipleRowSlick = (props) => {
 
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
   const settings = {
+    dots: true,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
   };
+
   return (
-    <div>
+    <div className="mx-10">
       <button
         type="button"
-        className={`${styleSlick[activeClassDC]}px-8 py-3 font-semibold rounded bg-gray-400 text-white mr-2`}
+        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
         onClick={() => {
           const action = { type: SET_FILM_DANG_CHIEU };
           dispatch(action);
@@ -70,7 +49,7 @@ const MultipleRowSlick = (props) => {
       </button>
       <button
         type="button"
-        className={`${styleSlick[activeClassSC]}px-8 py-3 font-semibold rounded bg-white text-gray-400 border-gray-800 border`}
+        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
         onClick={() => {
           const action = { type: SET_FILM_SAP_CHIEU };
           dispatch(action);

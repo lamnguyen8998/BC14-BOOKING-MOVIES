@@ -36,18 +36,18 @@ export default function Detail(props) {
         borderRadius={0} // default border radius value is 10px
       >
         <div className="grid grid-cols-12">
-          <div className="col-span-6 col-start-4">
-            <img className="col-span-1" src={filmDetail?.hinhAnh} alt="123" />
-            <div className="col-span-6 ml-3">
-              <p className="text-2xl text-green-500">
-                Ngày Chiếu:
-                {moment(filmDetail?.ngayKhoiChieu).format(
-                  "DD - MM - YYYY"
-                )}{" "}
-              </p>
-              <p className="text-4xl text-green-500">{filmDetail?.tenPhim}</p>
-              <p className="text-2xl text-green-500">{filmDetail?.moTa}</p>
-            </div>
+          <img
+            className="col-span-4 ml-5"
+            src={filmDetail?.hinhAnh}
+            alt="123"
+          />
+          <div className="col-span-8 ml-3">
+            <p className="text-2xl text-black">
+              Ngày Chiếu:
+              {moment(filmDetail?.ngayKhoiChieu).format("DD - MM - YYYY")}{" "}
+            </p>
+            <p className="text-4xl text-black">{filmDetail?.tenPhim}</p>
+            <p className="text-2xl text-black">{filmDetail?.moTa}</p>
           </div>
         </div>
         <div className="mt-20 ml-72 w-2/3 container bg-white px-5 py-5 container">

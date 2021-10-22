@@ -24,11 +24,18 @@ export default function Film_Flip(props) {
           className="flip-card-back"
           style={{ position: "relative", backgroundColor: "rgba(0,0,0,.9)" }}
         >
-          <div style={{ position: "absolute", top: 0, left: 0 }}>
+          <div
+            style={{
+              justifyContent: "center",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+          >
             <img
               src={item.hinhAnh}
               alt="Avatar"
-              style={{ width: 300, height: 300 }}
+              style={{ width: 500, height: 300 }}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "https://picsum.photos/300/300";

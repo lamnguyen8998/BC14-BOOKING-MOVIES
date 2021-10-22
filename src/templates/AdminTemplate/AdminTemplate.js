@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect, Route } from "react-router";
 import { Layout, Menu, Breadcrumb } from "antd";
-import { DesktopOutlined, FileOutlined, UserOutlined } from "@ant-design/icons";
+import { FileOutlined, UserOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 import _ from "lodash";
 import { history } from "../../App";
@@ -58,7 +58,7 @@ const AdminTemplate = (props) => {
             >
               {userLogin.taiKhoan.substr(0, 1)}
             </div>
-            Hello ! {userLogin.taiKhoan}
+            {userLogin.taiKhoan}
           </button>{" "}
           <button
             onClick={() => {
