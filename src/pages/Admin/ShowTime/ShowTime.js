@@ -5,8 +5,8 @@ import { DatePicker } from "antd";
 import { InputNumber } from "antd";
 import { quanLyRapService } from "../../../services/QuanLyRapService";
 import { useFormik } from "formik";
-import moment from "moment";
 import { quanLyDatVeService } from "../../../services/QuanLyDatVeService";
+import moment from "moment";
 
 export default function ShowTime(props) {
   const formik = useFormik({
@@ -41,7 +41,9 @@ export default function ShowTime(props) {
         ...state,
         heThongRapChieu: result.data.content,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log("error", error);
+    }
   }, []);
 
   const handleChangeHeThongRap = async (value) => {

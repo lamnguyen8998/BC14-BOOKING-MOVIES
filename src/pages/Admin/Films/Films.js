@@ -26,14 +26,10 @@ const suffix = (
   />
 );
 
-const onSearch = (value) => console.log(value);
-
 export default function Films() {
   const { arrFilmDefault } = useSelector((state) => state.QuanLyPhimReducer);
   const dispatch = useDispatch();
   console.log("arrFilmDefault", arrFilmDefault);
-
-  const data = arrFilmDefault;
 
   useEffect(() => {
     dispatch(layDanhSachPhimAction());
@@ -116,17 +112,23 @@ export default function Films() {
               key={2}
               className="text-2xl"
               onClick={() => {
-                //Gọi action xoá
                 if (
                   window.confirm("Bạn có chắc muốn xoá phim " + film.tenPhim)
                 ) {
-                  //Gọi action
                   dispatch(xoaPhimAction(film.maPhim));
                 }
               }}
             >
               <DeleteOutlined style={{ color: "red" }} />{" "}
             </span>
+            <NavLink
+              key={1}
+              className=" text-green-200 mr-2 text-2xl"
+              style={{ color: "blue" }}
+              to={`/admin/films/showtime/${film.maPhim}`}
+            >
+              <CalendarOutlined />
+            </NavLink>
           </Fragment>
         );
       },
@@ -134,6 +136,14 @@ export default function Films() {
       width: "10%",
     },
   ];
+
+  const data = arrFilmDefault;
+
+  const onSearch = (value) => {
+    console.log(value);
+
+    dispatch(layDanhSachPhimAction(value));
+  };
 
   return (
     <div>
@@ -149,7 +159,7 @@ export default function Films() {
       <Search
         className="mb-5"
         placeholder="input search text"
-        enterButton="Search"
+        enterButton={<SearchOutlined />}
         size="large"
         suffix={suffix}
         onSearch={onSearch}

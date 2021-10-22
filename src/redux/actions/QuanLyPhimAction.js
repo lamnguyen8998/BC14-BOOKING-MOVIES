@@ -8,7 +8,7 @@ import { history } from "../../App";
 export const layDanhSachPhimAction = (tenPhim = "") => {
   return async (dispatch) => {
     try {
-      const result = await quanlyPhimService.layDanhSachPhim();
+      const result = await quanlyPhimService.layDanhSachPhim(tenPhim);
 
       dispatch({
         type: SET_DANH_SACH_PHIM,

@@ -42,7 +42,7 @@ function App() {
         <AdminTemplate path="/admin/films/addnew" exact Component={AddNew} />
         <AdminTemplate path="/admin/films/edit/:id" exact Component={Edit} />
         <AdminTemplate
-          path="/admin/films/showtime/:id/:tenphim"
+          path="/admin/films/showtime/:id"
           exact
           Component={ShowTime}
         />
