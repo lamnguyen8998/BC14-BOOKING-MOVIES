@@ -1,15 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect, Route } from "react-router";
-// import { TOKEN, USER_LOGIN } from "../../util/settings/config";
 import { Layout, Menu, Breadcrumb } from "antd";
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { DesktopOutlined, FileOutlined, UserOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 import _ from "lodash";
 import { history } from "../../App";
@@ -111,9 +104,6 @@ const AdminTemplate = (props) => {
                       <NavLink to="/admin/films/addnew">Add new</NavLink>
                     </Menu.Item>
                   </SubMenu>
-                  <Menu.Item key="3" icon={<DesktopOutlined />}>
-                    <NavLink to="/admin/showtimes">Showtime</NavLink>
-                  </Menu.Item>
                 </Menu>
               </Sider>
               <Layout className="site-layout">

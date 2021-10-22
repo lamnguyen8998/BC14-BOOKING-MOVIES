@@ -1,7 +1,6 @@
 import React from "react";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import "./Film_Flip.css";
-import { NavLink } from "react-router-dom";
 import { history } from "../../App";
 
 export default function Film_Flip(props) {
@@ -66,27 +65,3 @@ export default function Film_Flip(props) {
     </div>
   );
 }
-
-// import React from "react";
-// import "./Film_Flip.css";
-
-// export default function Film_Flip(props) {
-//   const { item } = props;
-//   return (
-//     <div className="flip-card">
-//       <div className="flip-card-inner">
-//         <div className="flip-card-front">
-//           <img
-//             src={item.hinhAnh}
-//             alt={item.moTa}
-//             style={{ width: 300, height: 300 }}
-//           />
-//         </div>
-//         <div className="flip-card-back">
-//           <h1>{item.tenPhim}</h1>
-//           <button>Đặt Vé</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

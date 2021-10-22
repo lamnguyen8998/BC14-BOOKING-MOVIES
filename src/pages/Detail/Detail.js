@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { CustomCard } from "@tsamantanis/react-glassmorphism";
 import "@tsamantanis/react-glassmorphism/dist/index.css";
-import { Tabs, Radio, Space } from "antd";
+import { Tabs } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_CHI_TIET_PHIM } from "../../redux/types/QuanLyRapType";
 import { layThongTinChiTietPhim } from "../../redux/actions/QuanLyRapAction";
 import moment from "moment";
 import { NavLink } from "react-router-dom";

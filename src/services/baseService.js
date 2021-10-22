@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { DOMAIN, TOKEN, TOKEN_CYBERSOFT } from "../ultil/settings/config";
+import { DOMAIN, TOKEN_CYBERSOFT } from "../ultil/settings/config";
 
 export class baseService {
   put = (url, model) => {
