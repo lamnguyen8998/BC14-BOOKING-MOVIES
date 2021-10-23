@@ -93,15 +93,21 @@ const AdminTemplate = (props) => {
                   />
                 </div>
                 <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-                  <Menu.Item key="1" icon={<UserOutlined />}>
-                    <NavLink to="/admin/users">Users</NavLink>
-                  </Menu.Item>
+                  <SubMenu
+                    key="sub1"
+                    icon={<FileOutlined />}
+                    title="Người Dùng"
+                  >
+                    <Menu.Item key="10" icon={<FileOutlined />}>
+                      <NavLink to="/admin/users">Quản ký Users</NavLink>
+                    </Menu.Item>
+                  </SubMenu>
                   <SubMenu key="sub1" icon={<FileOutlined />} title="Films">
                     <Menu.Item key="10" icon={<FileOutlined />}>
-                      <NavLink to="/admin/films">Films</NavLink>
+                      <NavLink to="/admin/films">Quản ký Phim</NavLink>
                     </Menu.Item>
                     <Menu.Item key="11" icon={<FileOutlined />}>
-                      <NavLink to="/admin/films/addnew">Add new</NavLink>
+                      <NavLink to="/admin/films/addnew">Thêm phim mới</NavLink>
                     </Menu.Item>
                   </SubMenu>
                 </Menu>
