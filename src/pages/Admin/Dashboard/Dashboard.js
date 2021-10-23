@@ -88,7 +88,7 @@ export default function Dashboard() {
 
     {
       title: "Hành động",
-      dataIndex: "maPhim",
+      dataIndex: "taiKhoan",
       render: (text, user) => {
         return (
           <Fragment>
@@ -108,14 +108,6 @@ export default function Dashboard() {
             >
               <DeleteOutlined style={{ color: "red" }} />{" "}
             </span>
-            <NavLink
-              key={1}
-              className=" text-green-200 mr-2 text-2xl"
-              style={{ color: "blue" }}
-              to="#"
-            >
-              <CalendarOutlined />
-            </NavLink>
           </Fragment>
         );
       },

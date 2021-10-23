@@ -16,6 +16,9 @@ export class QuanLyNguoiDungService extends baseService {
   layDanhSachNguoiDung = () => {
     return this.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP15");
   };
+  themNguoiDung = (formData) => {
+    return this.post(`api/QuanLyNguoiDung/ThemNguoiDung`, formData);
+  };
 }
 
 export const quanLyNguoiDungService = new QuanLyNguoiDungService();

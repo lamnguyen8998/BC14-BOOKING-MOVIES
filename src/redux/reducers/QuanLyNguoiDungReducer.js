@@ -1,6 +1,7 @@
 import { TOKEN, USER_LOGIN } from "../../ultil/settings/config";
 import {
   DANG_NHAP_ACTION,
+  SET_DANH_SACH_LOAI_NGUOI_DUNG,
   SET_DANH_SACH_NGUOI_DUNG,
   SET_THONG_TIN_NGUOI_DUNG,
 } from "../types/QuanlyNguoiDungType";
@@ -46,6 +47,7 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
       state.arrUserDefault = state.arrUser;
       return { ...state };
     }
+
     default:
       return { ...state };
       break;

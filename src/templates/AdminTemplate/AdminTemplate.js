@@ -99,7 +99,7 @@ const AdminTemplate = (props) => {
                     title="Người Dùng"
                   >
                     <Menu.Item key="10" icon={<FileOutlined />}>
-                      <NavLink to="/admin/users">Quản ký Users</NavLink>
+                      <NavLink to="/admin/users">Quản lý Users</NavLink>
                     </Menu.Item>
                     <Menu.Item key="20" icon={<FileOutlined />}>
                       <NavLink to="/admin/users/adduser">Thêm Users</NavLink>
@@ -107,7 +107,7 @@ const AdminTemplate = (props) => {
                   </SubMenu>
                   <SubMenu key="sub1" icon={<FileOutlined />} title="Films">
                     <Menu.Item key="30" icon={<FileOutlined />}>
-                      <NavLink to="/admin/films">Quản ký Phim</NavLink>
+                      <NavLink to="/admin/films">Quản lý Phim</NavLink>
                     </Menu.Item>
                     <Menu.Item key="40" icon={<FileOutlined />}>
                       <NavLink to="/admin/films/addnew">Thêm phim mới</NavLink>

@@ -37,6 +37,7 @@ export default function Detail(props) {
       >
         <div className="grid grid-cols-12">
           <img
+            style={{ width: 300, height: 400 }}
             className="col-span-4 ml-5"
             src={filmDetail?.hinhAnh}
             alt="123"

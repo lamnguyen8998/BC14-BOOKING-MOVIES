@@ -1,17 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  Form,
-  Input,
-  Button,
-  Radio,
-  Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
-} from "antd";
+import { Form, Input, Radio, DatePicker, InputNumber, Switch } from "antd";
 import { useFormik } from "formik";
 import { GROUP } from "../../../../ultil/settings/config";
 import { themPhimUploadHinhAction } from "../../../../redux/actions/QuanLyPhimAction";
@@ -52,7 +41,6 @@ const AddNew = () => {
   });
 
   const handleChangeDatePicker = (value) => {
-    // console.log('datepickerchange',);
     let ngayKhoiChieu = moment(value).format("DD/MM/YYYY");
     formik.setFieldValue("ngayKhoiChieu", ngayKhoiChieu);
   };
@@ -70,7 +58,6 @@ const AddNew = () => {
   };
 
   const handleChangeFile = (e) => {
-    //Lấy file ra từ e
     let file = e.target.files[0];
     if (
       file.type === "image/jpeg" ||

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Form, Input, Button, Select, Radio } from "antd";
+
+import { Form, Input, Select, Radio } from "antd";
 
 import { useFormik } from "formik";
 import { GROUP } from "../../../../ultil/settings/config";
-const { Option } = Select;
+import { useDispatch } from "react-redux";
+import { themNguoiDungAction } from "../../../../redux/actions/QuanLyNguoiDungAction";
+
 const layout = {
   labelCol: {
     span: 8,
@@ -13,37 +15,11 @@ const layout = {
     span: 16,
   },
 };
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
 
 const AddUser = () => {
   const [componentSize, setComponentSize] = useState("default");
   const [form] = Form.useForm();
-
-  const onGenderChange = (value) => {
-    switch (value) {
-      case "male":
-        form.setFieldsValue({
-          note: "Hi, man!",
-        });
-        return;
-
-      case "female":
-        form.setFieldsValue({
-          note: "Hi, lady!",
-        });
-        return;
-
-      case "other":
-        form.setFieldsValue({
-          note: "Hi there!",
-        });
-    }
-  };
+  const dispatch = useDispatch();
 
   const onFinish = (values) => {
     console.log(values);
@@ -55,12 +31,22 @@ const AddUser = () => {
       matKhau: "",
       email: "",
       soDt: "",
-      maNhom: "",
       hoTen: "",
     },
     onSubmit: (values) => {
       console.log("values", values);
       values.maNhom = GROUP;
+      values.maLoaiNguoiDung = "KhachHang";
+      let formData = new FormData();
+      for (let key in values) {
+        if (key !== "hinhAnh") {
+          formData.append(key, values[key]);
+        } else {
+          formData.append("File", values.hinhAnh, values.hinhAnh.name);
+        }
+      }
+
+      dispatch(themNguoiDungAction(formData));
     },
   });
 
@@ -113,16 +99,7 @@ const AddUser = () => {
         <Form.Item label="Số Điện Thoại">
           <Input name="soDt" name="soDt" onChange={formik.handleChange} />
         </Form.Item>
-        <Form.Item label="Mã loại người dùng">
-          <Select
-            placeholder="Select a option and change input text above"
-            onChange={onGenderChange}
-            allowClear
-          >
-            <Option value="KhachHang">Khách hàng</Option>
-            <Option value="QuanTri">Quản trị</Option>
-          </Select>
-        </Form.Item>
+
         <Form.Item label="Họ Tên">
           <Input name="hoTen" name="hoTen" onChange={formik.handleChange} />
 

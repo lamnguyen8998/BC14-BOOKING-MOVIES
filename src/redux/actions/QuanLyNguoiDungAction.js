@@ -2,6 +2,7 @@ import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDung";
 import {
   DANG_KY_ACTION,
   DANG_NHAP_ACTION,
+  SET_DANH_SACH_LOAI_NGUOI_DUNG,
   SET_DANH_SACH_NGUOI_DUNG,
   SET_THONG_TIN_NGUOI_DUNG,
 } from "../types/QuanlyNguoiDungType";
@@ -77,6 +78,18 @@ export const layDanhSachNguoiDungAction = () => {
       });
     } catch (errors) {
       console.log(errors);
+    }
+  };
+};
+
+export const themNguoiDungAction = (formData) => {
+  return async (dispatch) => {
+    try {
+      let result = await quanLyNguoiDungService.themNguoiDung(formData);
+      alert("Thêm người dùng thành công");
+      console.log("result", result.data.content);
+    } catch (errors) {
+      console.log(errors.response?.data);
     }
   };
 };
