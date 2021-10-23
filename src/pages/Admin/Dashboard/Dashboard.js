@@ -10,10 +10,7 @@ import {
   CalendarOutlined,
 } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  layDanhSachPhimAction,
-  xoaPhimAction,
-} from "../../../redux/actions/QuanLyPhimAction";
+
 import { NavLink } from "react-router-dom";
 import { layDanhSachNguoiDungAction } from "../../../redux/actions/QuanLyNguoiDungAction";
 
@@ -27,59 +24,43 @@ const suffix = (
   />
 );
 
-export default function Films() {
-  const { arrFilmDefault } = useSelector((state) => state.QuanLyPhimReducer);
+export default function Dashboard() {
+  const { arrUserDefault } = useSelector(
+    (state) => state.QuanLyNguoiDungReducer
+  );
   const dispatch = useDispatch();
-  console.log("arrFilmDefault", arrFilmDefault);
+  console.log("arrUserDefault", arrUserDefault);
 
   useEffect(() => {
-    dispatch(layDanhSachPhimAction());
+    dispatch(layDanhSachNguoiDungAction());
   }, []);
   const columns = [
     {
       title: "Tài Khoản",
       dataIndex: "taiKhoan",
 
-      render: (text, film) => {
-        return (
-          <Fragment>
-            {film.moTa.length > 50
-              ? film.moTa.substr(0, 50) + " ..."
-              : film.moTa}
-          </Fragment>
-        );
+      render: (text, user) => {
+        return <Fragment>{user.taiKhoan}</Fragment>;
       },
       sortDirections: ["descend", "ascend"],
       width: "15%",
     },
     {
       title: "Mật Khẩu",
-      dataIndex: "moTa",
+      dataIndex: "matKhau",
 
-      render: (text, film) => {
-        return (
-          <Fragment>
-            {film.moTa.length > 50
-              ? film.moTa.substr(0, 50) + " ..."
-              : film.moTa}
-          </Fragment>
-        );
+      render: (text, user) => {
+        return <Fragment>{user.matKhau}</Fragment>;
       },
       sortDirections: ["descend", "ascend"],
       width: "15%",
     },
     {
       title: "Họ và Tên",
-      dataIndex: "moTa",
+      dataIndex: "hoTen",
 
-      render: (text, film) => {
-        return (
-          <Fragment>
-            {film.moTa.length > 50
-              ? film.moTa.substr(0, 50) + " ..."
-              : film.moTa}
-          </Fragment>
-        );
+      render: (text, user) => {
+        return <Fragment>{user.hoTen}</Fragment>;
       },
       sortDirections: ["descend", "ascend"],
       width: "15%",
@@ -88,30 +69,18 @@ export default function Films() {
       title: "Email",
       dataIndex: "moTa",
 
-      render: (text, film) => {
-        return (
-          <Fragment>
-            {film.moTa.length > 50
-              ? film.moTa.substr(0, 50) + " ..."
-              : film.moTa}
-          </Fragment>
-        );
+      render: (text, user) => {
+        return <Fragment>{user.email}</Fragment>;
       },
       sortDirections: ["descend", "ascend"],
       width: "15%",
     },
     {
       title: "Số Điện Thoại",
-      dataIndex: "moTa",
+      dataIndex: "soDt",
 
-      render: (text, film) => {
-        return (
-          <Fragment>
-            {film.moTa.length > 50
-              ? film.moTa.substr(0, 50) + " ..."
-              : film.moTa}
-          </Fragment>
-        );
+      render: (text, user) => {
+        return <Fragment>{user.soDt}</Fragment>;
       },
       sortDirections: ["descend", "ascend"],
       width: "15%",
@@ -120,14 +89,14 @@ export default function Films() {
     {
       title: "Hành động",
       dataIndex: "maPhim",
-      render: (text, film) => {
+      render: (text, user) => {
         return (
           <Fragment>
             <NavLink
               key={1}
               className=" text-green-200 mr-2 text-2xl"
               style={{ color: "blue" }}
-              to={`/admin/films/edit/${film.maPhim}`}
+              to="#"
             >
               <EditOutlined />
             </NavLink>
@@ -135,13 +104,7 @@ export default function Films() {
               style={{ cursor: "pointer" }}
               key={2}
               className="text-2xl"
-              onClick={() => {
-                if (
-                  window.confirm("Bạn có chắc muốn xoá phim " + film.tenPhim)
-                ) {
-                  dispatch(xoaPhimAction(film.maPhim));
-                }
-              }}
+              to="#"
             >
               <DeleteOutlined style={{ color: "red" }} />{" "}
             </span>
@@ -149,7 +112,7 @@ export default function Films() {
               key={1}
               className=" text-green-200 mr-2 text-2xl"
               style={{ color: "blue" }}
-              to={`/admin/films/showtime/${film.maPhim}`}
+              to="#"
             >
               <CalendarOutlined />
             </NavLink>
@@ -161,7 +124,7 @@ export default function Films() {
     },
   ];
 
-  const data = arrFilmDefault;
+  const data = arrUserDefault;
 
   const onSearch = (value) => {
     console.log(value);
@@ -174,12 +137,12 @@ export default function Films() {
       <Button
         className="mb-5"
         onClick={() => {
-          history.push("/admin/films/addnew");
+          history.push("/admin/users/adduser");
         }}
       >
-        Thêm phim
+        Thêm Người Dùng
       </Button>
-      <h3 className="text-4xl">Quản lý phim</h3>
+      <h3 className="text-4xl">Quản lý Người Dùng</h3>
       <Search
         className="mb-5"
         placeholder="input search text"
@@ -192,7 +155,7 @@ export default function Films() {
         columns={columns}
         dataSource={data}
         onChange={onChange}
-        rowKey={"maPhim"}
+        rowKey={"taiKhoan"}
       />
     </div>
   );
