@@ -72,3 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### trang web dự án booking movies:
 
 https://bc14bookingmovies-app.surge.sh/
+
+### Phân công việc nhóm GP15:
+
+https://docs.google.com/spreadsheets/d/11ZMtsh7aFCsJHJyhldxniGeBeRnxS-Pb/edit#gid=655924377
