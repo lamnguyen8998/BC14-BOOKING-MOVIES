@@ -140,7 +140,7 @@ export default function Films() {
   const data = arrFilmDefault;
 
   const onSearch = (value) => {
-    console.log(value);
+    // console.log(value);
 
     dispatch(layDanhSachPhimAction(value));
   };

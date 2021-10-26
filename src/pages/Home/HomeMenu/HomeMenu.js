@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Tabs } from "antd";
 import { NavLink } from "react-router-dom";
 import moment from "moment";
-
+import "./HomeMenu.css"
 const { TabPane } = Tabs;
 
 export default class HomeMenu extends React.PureComponent {
@@ -26,7 +26,8 @@ export default class HomeMenu extends React.PureComponent {
           }
           key={index}
         >
-          <Tabs tabPosition={tabPosition}>
+          <Tabs 
+            tabPosition={tabPosition}>
             {heThongRap.lstCumRap?.map((cumRap, index) => {
               return (
                 <TabPane
@@ -37,7 +38,7 @@ export default class HomeMenu extends React.PureComponent {
                         width="50"
                       />
                       <br />
-                      <div className="text-left ml-2">
+                      <div className="home_menu-title text-left ml-2 md:mr-20 home__display">
                         {cumRap.tenCumRap}
                         <p className="text-red-400">[Chi tiết]</p>
                       </div>
@@ -48,8 +49,9 @@ export default class HomeMenu extends React.PureComponent {
                   {cumRap.danhSachPhim.map((phim, index) => {
                     return (
                       <Fragment key={index}>
-                        <div className=" my-5" style={{ display: "flex" }}>
-                          <div style={{ display: "flex" }}>
+                        <div className="my-5" style={{ display: "flex" }}>
+                          <div 
+                          >
                             <img
                               style={{ height: 100, width: 100 }}
                               src={phim.hinhAnh}
@@ -62,9 +64,9 @@ export default class HomeMenu extends React.PureComponent {
                             <div className="ml-2">
                               <h1 className="font-bold ml-2">{phim.tenPhim}</h1>
                               <p>{cumRap.diaChi}</p>
-                              <div className="grid grid-cols-6 gap-2">
+                              <div className="grid grid-cols-3 gap-2">
                                 {phim.lstLichChieuTheoPhim
-                                  ?.slice(0, 12)
+                                  ?.slice(0, 8)
                                   .map((lichChieu, index) => {
                                     return (
                                       <NavLink

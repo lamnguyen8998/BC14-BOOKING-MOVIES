@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Form, Input, Select, Radio } from "antd";
+import { Form, Input, Radio } from "antd";
 
 import { useFormik } from "formik";
 import { GROUP } from "../../../../ultil/settings/config";

@@ -9,7 +9,7 @@ export const layDanhSachHeThongRapAction = () => {
     try {
       const result = await quanLyRapService.layDanhSachHeThongRap();
 
-      console.log("result", result.data.content);
+      // console.log("result", result.data.content);
       if (result.status === 200) {
         dispatch({
           type: SET_HE_THONG_RAP_CHIEU,
@@ -17,7 +17,7 @@ export const layDanhSachHeThongRapAction = () => {
         });
       }
     } catch (errors) {
-      console.log("errors", errors.response?.data);
+      // console.log("errors", errors.response?.data);
     }
   };
 };
@@ -33,7 +33,7 @@ export const layThongTinChiTietPhim = (id) => {
         filmDetail: result.data.content,
       });
     } catch (errors) {
-      console.log("errors", errors.response?.data);
+      // console.log("errors", errors.response?.data);
     }
   };
 };

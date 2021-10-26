@@ -38,3 +38,34 @@
   color: white;
   transform: rotateY(180deg);
 }
+
+
+/* Mobile width < 767px */
+@media only screen and (max-width: 767px) {
+  .flip-card,
+  .flip-card-back{
+  width: 150px;
+  height: 150px;
+  }
+  
+  .home__carousel__font{
+    font-size: 16px;
+  }
+  .Film_Flip__img{
+    width: 100px;
+    height: 150px;
+  }
+}
+/* Table width >= 768px  width < 1024px*/
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+  .flip-card, 
+  .flip-card-back {
+    width: 200px;
+    height: 300px;
+    }
+}
+
+/* PC width >= 1024px */
+@media only screen and (min-width: 1024px){
+    
+}

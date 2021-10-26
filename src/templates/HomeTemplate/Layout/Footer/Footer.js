@@ -1,7 +1,8 @@
-import { AndroidFilled, YoutubeFilled } from "@ant-design/icons";
+
 import _ from "lodash";
 import React from "react";
 import { useSelector } from "react-redux";
+import "./Footer.css"
 
 export default function Footer(props) {
   const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
@@ -11,16 +12,15 @@ export default function Footer(props) {
   );
 
   return (
-    <footer className="px-4 py-8 bg-coolGray-100 text-coolGray-600">
-      <div className="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
+    <footer className="px-4 py-8 bg-gray-800 text-coolGray-600">
+      <div className=" container flex flex-wrap items-start justify-center mx-auto space-y-4 sm:justify-evenly  sm:space-y-0">
         <div className="flex flex-row pr-3 space-x-4 sm:space-x-8">
-          <div className="flex items-center justify-center flex-shrink-0 w-30 h-100 rounded-full bg-violet-600">
-            <img
+          <div className="flex justify-center items-center flex-shrink-0 w-30 h-100 rounded-full bg-violet-600">
+            <img className="items-center Footer__logo items-center"
               src="https://iphimmoi.net/wp-content/uploads/2021/08/logo.png"
               alt="logophimmoi"
             />
           </div>
-
           <ul className="flex flex-wrap items-center space-x-4 sm:space-x-8">
             <li>
               <p className="pb-1 text-lg font-medium text-gray-600">
@@ -33,10 +33,10 @@ export default function Footer(props) {
           </ul>
         </div>
         <div className="col-span-6 text-center md:text-left md:col-span-3">
-          <p className="pb-1 text-lg font-medium text-gray-600">
+          <p className="pb-1 text-lg font-medium text-gray-600 text-center">
             Business partner :
           </p>
-          <div className="grid grid-cols-2" style={{ color: "#fff" }}>
+          <div className="grid grid-cols-3 md:grid-cols-6" style={{ color: "#fff" }}>
             {arrHeThongRap.map((htr, index) => {
               return (
                 <div key={index}>

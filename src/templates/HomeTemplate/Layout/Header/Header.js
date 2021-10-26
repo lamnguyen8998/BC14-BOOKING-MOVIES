@@ -22,7 +22,7 @@ export default function Header(props) {
             }}
             className="self-center px-8 py-3 rounded"
           >
-            {"signin"}
+            {"Sign In"}
           </button>
           <button
             onClick={() => {
@@ -30,7 +30,7 @@ export default function Header(props) {
             }}
             className="self-center px-8 py-3 font-semibold rounded bg-violet-600 text-coolGray-50"
           >
-            {"register"}
+            {"Register"}
           </button>
         </Fragment>
       );
@@ -108,18 +108,6 @@ export default function Header(props) {
         </ul>
         <div className="items-center flex-shrink-0 hidden lg:flex">
           {renderLogin()}
-
-          {/* <button
-            onClick={() => {
-              history.push("/login");
-            }}
-            class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          >
-            Đăng Nhập
-          </button>
-          <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            Đăng Xuất
-          </button> */}
         </div>
         <button className="p-4 lg:hidden">
           <svg

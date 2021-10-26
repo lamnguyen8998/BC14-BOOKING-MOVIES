@@ -7,13 +7,13 @@ export default function Film_Flip(props) {
   const { item } = props;
 
   return (
-    <div className="flip-card mt-2">
+    <div className="flip-card ">
       <div className="flip-card-inner">
         <div className="flip-card-front">
-          <img
+          <img className="w-full h-full "
             src={item.hinhAnh}
             alt="Avatar"
-            style={{ width: 300, height: 300 }}
+            // style={{ width: 300, height: 300 }}
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = "https://picsum.photos/300/300";
@@ -32,10 +32,10 @@ export default function Film_Flip(props) {
               left: 0,
             }}
           >
-            <img
+            <img className="Film_Flip__img"
               src={item.hinhAnh}
               alt="Avatar"
-              style={{ width: 500, height: 300 }}
+              style={{ width: 300, height:300 }}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "https://picsum.photos/300/300";
@@ -56,7 +56,7 @@ export default function Film_Flip(props) {
               <div className="rounded-full cursor-pointer">
                 <PlayCircleOutlined style={{ fontSize: "50px" }} />
               </div>
-              <div className="text-2xl mt-2 font-bold">{item.tenPhim}</div>
+              <div className="text-2xl mt-3 font-bold home__carousel__font ">{item.tenPhim}</div>
             </div>
           </div>
         </div>

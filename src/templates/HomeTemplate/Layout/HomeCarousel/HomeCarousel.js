@@ -5,7 +5,8 @@ import { getCarouselAction } from "../../../../redux/actions/CarouselAction";
 import "./HomeCarousel.css";
 
 const contentStyle = {
-  height: "600px",
+  width: "100%",
+  height: "100%",
   color: "#fff",
   lineHeight: "160px",
   textAlign: "center",
@@ -38,7 +39,7 @@ export default function HomeCarousel(props) {
   };
 
   return (
-    <Carousel effect="fade" style={{ width: "100%", padding: 0, margin: 0 }}>
+    <Carousel effect="fade" style={{ width: "100%", height:"100%", padding: 0, margin: 0 }}>
       {renderImg()}
     </Carousel>
   );
